@@ -12,12 +12,12 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 
 public class MainFragment extends Fragment implements View.OnClickListener {
-
+    Button searchButton;
     public MainFragment(){}
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_fragment, container, false);
-
+        this.searchButton = view.findViewById(R.id.search_button);
         return view;
     }
 

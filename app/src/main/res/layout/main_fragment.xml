@@ -24,5 +24,6 @@
         android:background="@drawable/ripple_button"
         android:text="@string/cari"
         android:textColor="@color/colorPrimaryDark"
-        android:fontFamily="@font/ubuntu"/>
+        android:fontFamily="@font/ubuntu"
+        android:id="@+id/search_button"/>
 </LinearLayout>

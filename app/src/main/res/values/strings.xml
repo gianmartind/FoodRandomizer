@@ -2,6 +2,7 @@
     <string name="app_name"></string>
     <string name="openDrawer"></string>
     <string name="closeDrawer"></string>
+    <string name="title">Food Randomizer</string>
     <string name="cari">Cari</string>
     <string name="makan">Mau makan apa hari ini?</string>
 </resources>
