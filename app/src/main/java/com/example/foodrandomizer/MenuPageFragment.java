@@ -40,8 +40,6 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener {
         this.adapter = new MenuPageAdapter(this.getActivity());
         this.menuList.setAdapter(this.adapter);
 
-        menuPageViewModel.loadData();
-
         return view;
     }
 
