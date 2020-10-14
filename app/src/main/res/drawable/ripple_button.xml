@@ -4,9 +4,11 @@
         <shape>
             <solid
                 android:color="@color/colorAccent" />
+            <!--
             <stroke
                 android:width="0dp"
                 android:color="@color/colorAccent" />
+            -->
             <corners
                 android:radius="10dp" />
         </shape>
