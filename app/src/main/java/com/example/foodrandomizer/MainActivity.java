@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.example.foodrandomizer.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentListener{
     ActivityMainBinding bind;
     MainFragment mainFragment;
     MenuPageFragment menuPageFragment;
@@ -40,5 +40,12 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ft2 = this.fragmentManager.beginTransaction();
         ft2.add(R.id.fragment_container, this.menuPageFragment).addToBackStack(null).commit();
 
+    }
+    public void changePage(int page){}
+
+    @Override
+    public void closeApplication(){
+        this.moveTaskToBack(true);
+        this.finish();
     }
 }
