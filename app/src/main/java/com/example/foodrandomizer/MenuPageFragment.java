@@ -7,18 +7,39 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 public class MenuPageFragment extends Fragment {
     private MenuPageAdapter adapter;
     private ListView menuList;
+    private MenuPageViewModel menuPageViewModel;
+    private FloatingActionButton fab;
     public MenuPageFragment(){};
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.menu_page, container, false);
-        this.adapter = new MenuPageAdapter(this);
+        this.menuList = view.findViewById(R.id.menu_list);
+
+        this.menuPageViewModel = new ViewModelProvider(this).get(MenuPageViewModel.class);
+        this.menuPageViewModel.getList().observe(this, new Observer<List<Food>>() {
+            @Override
+            public void onChanged(List<Food> foodList) {
+                adapter.updateList(foodList);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+
+        this.adapter = new MenuPageAdapter(this.getActivity());
         this.menuList.setAdapter(this.adapter);
+
+        menuPageViewModel.loadData();
+
         return view;
     }
-
-
 }

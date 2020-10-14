@@ -14,6 +14,7 @@ import com.example.foodrandomizer.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding bind;
     MainFragment mainFragment;
+    MenuPageFragment menuPageFragment;
     FragmentManager fragmentManager;
 
     @Override
@@ -30,11 +31,14 @@ public class MainActivity extends AppCompatActivity {
         abdt.syncState();
 
         this.mainFragment = new MainFragment();
+        this.menuPageFragment = new MenuPageFragment();
 
         this.fragmentManager = this.getSupportFragmentManager();
 
-        FragmentTransaction ft = this.fragmentManager.beginTransaction();
-        ft.add(R.id.fragment_container, this.mainFragment).addToBackStack(null).commit();
+        //FragmentTransaction ft = this.fragmentManager.beginTransaction();
+        //ft.add(R.id.fragment_container, this.mainFragment).addToBackStack(null).commit();
+        FragmentTransaction ft2 = this.fragmentManager.beginTransaction();
+        ft2.add(R.id.fragment_container, this.menuPageFragment).addToBackStack(null).commit();
 
     }
 }
