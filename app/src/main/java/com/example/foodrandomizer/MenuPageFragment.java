@@ -14,7 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-public class MenuPageFragment extends Fragment {
+public class MenuPageFragment extends Fragment implements View.OnClickListener {
     private MenuPageAdapter adapter;
     private ListView menuList;
     private MenuPageViewModel menuPageViewModel;
@@ -34,6 +34,8 @@ public class MenuPageFragment extends Fragment {
             }
         });
 
+        this.fab = view.findViewById(R.id.fab);
+        this.fab.setOnClickListener(this);
 
         this.adapter = new MenuPageAdapter(this.getActivity());
         this.menuList.setAdapter(this.adapter);
@@ -41,5 +43,12 @@ public class MenuPageFragment extends Fragment {
         menuPageViewModel.loadData();
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == this.fab){
+            menuPageViewModel.addNew();
+        }
     }
 }

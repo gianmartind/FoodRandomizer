@@ -27,7 +27,8 @@ public class MenuPageViewModel extends ViewModel {
     }
 
     public void addNew(){
-
+        this.foods.add(new Food("Title", "Desc"));
+        this.foodList.setValue(this.foods);
     }
 
 

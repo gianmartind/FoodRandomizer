@@ -13,10 +13,6 @@ public class MockFood {
             new Food("Makanan 2","detail makanan 2"),
             new Food("Makanan 3","detail makanan 3"),
             new Food("Makanan 4","detail makanan 4"),
-            new Food("Makanan 5","detail makanan 5"),
-            new Food("Makanan 1","detail makanan 1"),
-            new Food("Makanan 2","detail makanan 2"),
-            new Food("Makanan 3","detail makanan 3"),
-            new Food("Makanan 4","detail makanan 4")
+            new Food("Makanan 5","detail makanan 5")
     };
 }
