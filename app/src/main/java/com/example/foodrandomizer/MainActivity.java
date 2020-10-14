@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
 import com.example.foodrandomizer.databinding.ActivityMainBinding;
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding bind;
     MainFragment mainFragment;
     FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,5 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentTransaction ft = this.fragmentManager.beginTransaction();
         ft.add(R.id.fragment_container, this.mainFragment).addToBackStack(null).commit();
+
     }
 }
