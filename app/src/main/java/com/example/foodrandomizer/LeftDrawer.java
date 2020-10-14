@@ -15,4 +15,5 @@ public class LeftDrawer extends Fragment {
         View view = inflater.inflate(R.layout.left_drawer, container, false);
         return view;
     }
+    //jjj
 }
