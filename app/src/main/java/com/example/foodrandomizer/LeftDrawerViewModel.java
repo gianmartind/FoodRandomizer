@@ -21,10 +21,6 @@ public class LeftDrawerViewModel extends ViewModel {
         this.item = new MutableLiveData<>();
     }
 
-    public void setActivity(FragmentListener fragmentListener){
-        this.fragmentListener = fragmentListener;
-    }
-
     public LiveData<List<String>> getList(){
         return item;
     }
