@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10px">
+
+    <TextView
+        android:id="@+id/menu_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:text="Menu Name" />
+    
+    <TextView
+        android:id="@+id/menu_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu"
+        android:paddingLeft="15px"
+        android:textSize="12sp"
+        android:textColor="#80000000"
+        android:text="Menu Description"/>
+</LinearLayout>
