@@ -45,10 +45,12 @@ public class LeftDrawerAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup){
         ViewHolder viewHolder;
+        String current = this.getItem(i).toString();
 
         if(view == null){
             view = LayoutInflater.from(this.leftDrawer).inflate(R.layout.item_list_drawer_left, viewGroup,false);
             viewHolder = new ViewHolder(view);
+            viewHolder.updateView(current);
             view.setTag(viewHolder);
         }
         else{
@@ -62,6 +64,10 @@ public class LeftDrawerAdapter extends BaseAdapter {
 
         public ViewHolder(View view){
             this.tvWord = view.findViewById(R.id.isi_fragment_left);
+        }
+
+        public void updateView(final String word){
+            this.tvWord.setText(word);
         }
     }
 }

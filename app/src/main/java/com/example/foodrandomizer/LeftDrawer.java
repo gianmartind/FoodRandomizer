@@ -18,6 +18,7 @@ public class LeftDrawer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.left_drawer, container, false);
         String[] isi_fragment_left = { "Home", "Cari", "Menu", "Setting", "Exit"};
+        this.fragment_left = view.findViewById(R.id.lst_left);
         this.adapter = new LeftDrawerAdapter(this.getActivity());
         this.fragment_left.setAdapter(this.adapter);
         for(int i=0;i<isi_fragment_left.length;i++){
