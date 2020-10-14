@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import java.util.List;
 
-public class LeftDrawer extends Fragment implements AdapterView.OnItemClickListener{
+public class LeftDrawer extends Fragment implements AdapterView.OnItemClickListener, FragmentListener{
     LeftDrawerAdapter adapter;
     ListView fragment_left;
     LeftDrawerViewModel lvm;
@@ -23,27 +23,42 @@ public class LeftDrawer extends Fragment implements AdapterView.OnItemClickListe
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.left_drawer, container, false);
-        String[] isi_fragment_left = { "Home", "Cari", "Menu", "Setting", "Exit"};
+
         this.fragment_left = view.findViewById(R.id.lst_left);
         this.adapter = new LeftDrawerAdapter(this.getActivity());
         this.fragment_left.setAdapter(this.adapter);
         /*for(int i=0;i<isi_fragment_left.length;i++){
             this.adapter.addLine(isi_fragment_left[i]);
         }*/
+
+
         this.lvm = new ViewModelProvider(this).get(LeftDrawerViewModel.class);
         this.lvm.getList().observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(List<String> strings) {
-                adapter.updateList(item);
+                adapter.updateList(strings);
                 adapter.notifyDataSetChanged();
             }
         });
-        this.adapter = new CustomAdapter(this, lvm);
-        this.
+
+        lvm.loadData();
+        return view;
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i,long l){
+        if(i == 4){
+            lvm.closeApp();
+        }
+    }
+
+    @Override
+    public void changePage(int page) {
+
+    }
+
+    @Override
+    public void closeApplication() {
 
     }
 }

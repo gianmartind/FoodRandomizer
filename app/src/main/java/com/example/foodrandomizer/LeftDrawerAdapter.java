@@ -27,6 +27,10 @@ public class LeftDrawerAdapter extends BaseAdapter {
         this.notifyDataSetChanged();
     }
 
+    public void updateList(List<String> list){
+        this.listItems = list;
+    }
+
     @Override
     public int getCount(){
         return this.listItems.size();
