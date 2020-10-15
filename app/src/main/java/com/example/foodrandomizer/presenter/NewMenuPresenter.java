@@ -13,6 +13,7 @@ public class NewMenuPresenter {
 
     public void addNewMenu(String title, String desc){
         Log.d("TAG", "addNewMenu: ADDED");
+        ui.changePage();
     }
 
     public interface INewMenu{
