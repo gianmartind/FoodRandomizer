@@ -43,18 +43,12 @@ public class MenuPageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder viewHolder;
+        view = LayoutInflater.from(this.fragment).inflate(R.layout.menu_list_item, viewGroup,false);
+        ViewHolder viewHolder = new ViewHolder(view);;
         Food current = (Food) this.getItem(i);
+        viewHolder.updateView(current);
+        view.setTag(viewHolder);
 
-        if(view == null){
-            view = LayoutInflater.from(this.fragment).inflate(R.layout.menu_list_item, viewGroup,false);
-            viewHolder = new ViewHolder(view);
-            viewHolder.updateView(current);
-            view.setTag(viewHolder);
-        }
-        else{
-            viewHolder = (ViewHolder) view.getTag();
-        }
         return view;
     }
 

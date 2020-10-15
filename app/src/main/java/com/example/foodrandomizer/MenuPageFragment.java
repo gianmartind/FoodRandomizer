@@ -14,17 +14,19 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-public class MenuPageFragment extends Fragment implements View.OnClickListener {
+public class MenuPageFragment extends Fragment implements View.OnClickListener, MenuPagePresenter.IMenuPage {
     private MenuPageAdapter adapter;
     private ListView menuList;
-    private MenuPageViewModel menuPageViewModel;
+    private MenuPagePresenter menuPagePresenter;
     private FloatingActionButton fab;
+
     public MenuPageFragment(){};
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.menu_page, container, false);
         this.menuList = view.findViewById(R.id.menu_list);
 
+        /*
         this.menuPageViewModel = new ViewModelProvider(this).get(MenuPageViewModel.class);
         this.menuPageViewModel.getList().observe(this, new Observer<List<Food>>() {
             @Override
@@ -33,6 +35,9 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener {
                 adapter.notifyDataSetChanged();
             }
         });
+        */
+
+        this.menuPagePresenter = new MenuPagePresenter(this);
 
         this.fab = view.findViewById(R.id.fab);
         this.fab.setOnClickListener(this);
@@ -40,13 +45,27 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener {
         this.adapter = new MenuPageAdapter(this.getActivity());
         this.menuList.setAdapter(this.adapter);
 
+        menuPagePresenter.loadData();
+        //this.menuPageViewModel.loadData();
+
         return view;
     }
 
     @Override
     public void onClick(View view) {
         if(view == this.fab){
-            menuPageViewModel.addNew();
+            menuPagePresenter.addNew("Title", "Description");
         }
+    }
+
+    @Override
+    public void UpdateList(List<Food> data) {
+        adapter.updateList(data);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void resetAddForm() {
+
     }
 }
