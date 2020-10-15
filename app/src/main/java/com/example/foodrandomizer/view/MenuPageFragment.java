@@ -1,5 +1,6 @@
 package com.example.foodrandomizer.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
     private MenuPageAdapter adapter;
     private ListView menuList;
     private MenuPagePresenter menuPagePresenter;
+    FragmentListener fragmentListener;
     private FloatingActionButton fab;
 
     public MenuPageFragment(){};
@@ -52,10 +54,19 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
         return view;
     }
 
+    public void onAttach(Context context){
+        super.onAttach(context);
+        if(context instanceof FragmentListener){
+            this.fragmentListener = (FragmentListener) context;
+        } else{
+            throw new ClassCastException(context.toString() + " must implement FragmentListener");
+        }
+    }
+
     @Override
     public void onClick(View view) {
         if(view == this.fab){
-            menuPagePresenter.addNew("Title", "Description");
+            fragmentListener.changePage(5);
         }
     }
 

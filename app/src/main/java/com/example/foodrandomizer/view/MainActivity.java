@@ -10,12 +10,14 @@ import android.view.View;
 
 import com.example.foodrandomizer.R;
 import com.example.foodrandomizer.databinding.ActivityMainBinding;
+import com.example.foodrandomizer.presenter.NewMenuPresenter;
 
 public class MainActivity extends AppCompatActivity implements FragmentListener {
     ActivityMainBinding bind;
     MainFragment mainFragment;
     MenuPageFragment menuPageFragment;
     FragmentManager fragmentManager;
+    NewMenuFragment newMenuFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
 
         this.mainFragment = new MainFragment();
         this.menuPageFragment = new MenuPageFragment();
+        this.newMenuFragment = new NewMenuFragment();
 
         this.fragmentManager = this.getSupportFragmentManager();
 
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
             ft.replace(R.id.fragment_container, this.mainFragment).addToBackStack(null);
         } else if(page == 2){
             ft.replace(R.id.fragment_container, this.menuPageFragment).addToBackStack(null);
+        } else if(page == 5){
+            ft.replace(R.id.fragment_container, this.newMenuFragment).addToBackStack(null);
         }
         ft.commit();
         this.bind.drawerLayout.closeDrawers();
