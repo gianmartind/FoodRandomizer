@@ -13,25 +13,26 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.foodrandomizer.R;
+import com.example.foodrandomizer.model.ItemLeftDrawer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LeftDrawerAdapter extends BaseAdapter {
-    private List<String> listItems;
+    private List<ItemLeftDrawer> listItems;
     private Context leftDrawer;
 
     public LeftDrawerAdapter(Context leftDrawer){
         this.leftDrawer = leftDrawer;
-        this.listItems = new ArrayList<String>();
+        this.listItems = new ArrayList<ItemLeftDrawer>();
     }
 
-    public void addLine(String newItem){
+    public void addLine(ItemLeftDrawer newItem){
         this.listItems.add(newItem);
         this.notifyDataSetChanged();
     }
 
-    public void updateList(List<String> list){
+    public void updateList(List<ItemLeftDrawer> list){
         this.listItems = list;
     }
 
@@ -53,7 +54,7 @@ public class LeftDrawerAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup){
         ViewHolder viewHolder;
-        String current = this.getItem(i).toString();
+        ItemLeftDrawer current = (ItemLeftDrawer) this.getItem(i);
 
         if(view == null){
             view = LayoutInflater.from(this.leftDrawer).inflate(R.layout.item_list_drawer_left, viewGroup,false);
@@ -69,13 +70,16 @@ public class LeftDrawerAdapter extends BaseAdapter {
 
     public class ViewHolder{
         protected TextView tvWord;
+        protected ImageView image;
 
         public ViewHolder(View view){
             this.tvWord = view.findViewById(R.id.isi_fragment_left);
+            this.image = view.findViewById(R.id.image_left_drawer);
         }
 
-        public void updateView(final String word){
-            this.tvWord.setText(word);
+        public void updateView(final ItemLeftDrawer word){
+            this.tvWord.setText(word.getItem());
+            this.image.setImageResource(word.getId());
         }
     }
 }

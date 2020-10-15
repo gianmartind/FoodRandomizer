@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.foodrandomizer.model.ItemLeftDrawer;
 import com.example.foodrandomizer.presenter.LeftDrawerPresenter;
 import com.example.foodrandomizer.R;
 
@@ -76,7 +77,7 @@ public class LeftDrawer extends Fragment implements AdapterView.OnItemClickListe
     }
 
     @Override
-    public void updateList(List<String> itemList) {
+    public void updateList(List<ItemLeftDrawer> itemList) {
         this.adapter.updateList(itemList);
         this.adapter.notifyDataSetChanged();
     }

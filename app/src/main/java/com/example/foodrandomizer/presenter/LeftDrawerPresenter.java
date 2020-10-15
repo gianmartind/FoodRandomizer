@@ -1,13 +1,14 @@
 package com.example.foodrandomizer.presenter;
 
 import com.example.foodrandomizer.MockItemFragmentLeft;
+import com.example.foodrandomizer.model.ItemLeftDrawer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class LeftDrawerPresenter {
-    private List<String> itemList;
+    private List<ItemLeftDrawer> itemList;
     private ILeftDrawer leftDrawer;
 
     public LeftDrawerPresenter(ILeftDrawer leftDrawer){
@@ -16,7 +17,7 @@ public class LeftDrawerPresenter {
     }
 
     public void loadData(){
-        this.itemList.addAll(Arrays.asList(MockItemFragmentLeft.itemListArr));
+        this.itemList.addAll(Arrays.asList(MockItemFragmentLeft.arr));
         this.leftDrawer.updateList(this.itemList);
     }
 
@@ -29,7 +30,7 @@ public class LeftDrawerPresenter {
     }
 
     public interface ILeftDrawer{
-        void updateList(List<String> itemList);
+        void updateList(List<ItemLeftDrawer> itemList);
         void changePage(int i);
         void closeApplication();
     }
