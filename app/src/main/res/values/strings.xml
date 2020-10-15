@@ -5,5 +5,5 @@
     <string name="title">food randomizer</string>
     <string name="cari">Cari</string>
     <string name="makan">Mau makan apa hari ini?</string>
-    <string name="menu_page_title">Menu</string>
+    <string name="menu_page_title">Menu List</string>
 </resources>

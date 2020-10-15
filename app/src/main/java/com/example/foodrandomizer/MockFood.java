@@ -1,5 +1,7 @@
 package com.example.foodrandomizer;
 
+import com.example.foodrandomizer.model.Food;
+
 public class MockFood {
 
     public static String[] foodStringArr = { "Nasi Goreng Biasa", "Nasi Goreng Telor", "Nasi Goreng Ayam",

@@ -1,11 +1,10 @@
 package com.example.foodrandomizer;
 
-import android.app.Activity;
-
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.foodrandomizer.view.FragmentListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;

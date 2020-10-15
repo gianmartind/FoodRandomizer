@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/leftFragment"
-            android:name="com.example.foodrandomizer.LeftDrawer"/>
+            android:name="com.example.foodrandomizer.view.LeftDrawer"/>
 
     </RelativeLayout>
 

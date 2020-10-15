@@ -1,4 +1,4 @@
-package com.example.foodrandomizer;
+package com.example.foodrandomizer.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,9 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
+import com.example.foodrandomizer.presenter.MenuPagePresenter;
+import com.example.foodrandomizer.R;
+import com.example.foodrandomizer.model.Food;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;

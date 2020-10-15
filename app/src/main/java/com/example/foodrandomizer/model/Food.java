@@ -1,4 +1,4 @@
-package com.example.foodrandomizer;
+package com.example.foodrandomizer.model;
 
 public class Food {
     private String name;

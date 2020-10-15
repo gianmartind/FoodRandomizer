@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="30px">
+    android:padding="40px">
 
     <TextView
         android:id="@+id/menu_name"

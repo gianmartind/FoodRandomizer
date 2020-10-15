@@ -1,4 +1,7 @@
-package com.example.foodrandomizer;
+package com.example.foodrandomizer.presenter;
+
+import com.example.foodrandomizer.MockFood;
+import com.example.foodrandomizer.model.Food;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +10,7 @@ import java.util.List;
 public class MenuPagePresenter {
     protected List<Food> foods;
     protected IMenuPage ui;
+
 
     public MenuPagePresenter(IMenuPage view){
         this.foods = new ArrayList<>();

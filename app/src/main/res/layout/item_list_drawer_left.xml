@@ -6,9 +6,16 @@
     android:orientation="horizontal"
     android:gravity="center">
 
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center" />
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="65dp"
+        android:paddingLeft="10dp"
         android:id="@+id/isi_fragment_left"
         android:paddingTop="17dp"
         android:textSize="25dp"
