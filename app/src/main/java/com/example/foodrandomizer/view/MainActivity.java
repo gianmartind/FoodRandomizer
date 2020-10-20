@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     SettingsFragment settingsFragment;
     SettingsPrefSaver settingsPrefSaver;
     MenuDetailsFragment menuDetailsFragment;
+    SearchPage searchPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         this.menuPageFragment = new MenuPageFragment();
         this.newMenuFragment = new NewMenuFragment();
         this.settingsFragment = new SettingsFragment();
+        this.searchPage = new SearchPage();
         this.menuDetailsFragment = MenuDetailsFragment.newInstance(0);
 
         this.fragmentManager = this.getSupportFragmentManager();
@@ -64,9 +66,14 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         FragmentTransaction ft = this.fragmentManager.beginTransaction();
         if(page == 0){
             ft.replace(R.id.fragment_container, this.mainFragment).addToBackStack(null);
-        } else if(page == 2){
+        }
+        else if(page==1){
+            ft.replace(R.id.fragment_container, this.searchPage).addToBackStack(null);
+        }
+        else if(page == 2){
             ft.replace(R.id.fragment_container, this.menuPageFragment).addToBackStack(null);
-        } else if(page == 3){
+        }
+        else if(page == 3){
             ft.replace(R.id.fragment_container, this.settingsFragment).addToBackStack(null);
             /*
             int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;

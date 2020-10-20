@@ -21,4 +21,5 @@
     <string name="delete">Delete</string>
     <string name="save">Save</string>
     <string name="menu_details_title">Menu Details</string>
+    <string name="pencarian_menu">Search Menu</string>
 </resources>
