@@ -22,6 +22,7 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
     DBHandler db;
     EditText menuName, menuDesc, menuBahan, menuLangkah, menuRestoran;
     Button save, delete;
+    Button nameEdit, descEdit, bahanEdit, langkahEdit, restoranEdit;
     MenuDetailsPresenter menuDetailsPresenter;
 
     public MenuDetailsFragment(){};
@@ -39,8 +40,22 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
         this.menuLangkah = view.findViewById(R.id.menu_langkah);
         this.menuRestoran = view.findViewById(R.id.menu_restoran);
         this.delete = view.findViewById(R.id.delete);
+        this.save = view.findViewById(R.id.save);
+
+        this.nameEdit = view.findViewById(R.id.menu_name_edit);
+        this.descEdit = view.findViewById(R.id.menu_desc_edit);
+        this.bahanEdit = view.findViewById(R.id.menu_bahan_edit);
+        this.langkahEdit = view.findViewById(R.id.menu_langkah_edit);
+        this.restoranEdit = view.findViewById(R.id.menu_restoran_edit);
 
         this.delete.setOnClickListener(this);
+        this.save.setOnClickListener(this);
+        this.nameEdit.setOnClickListener(this);
+        this.descEdit.setOnClickListener(this);
+        this.bahanEdit.setOnClickListener(this);
+        this.langkahEdit.setOnClickListener(this);
+        this.restoranEdit.setOnClickListener(this);
+
         this.menuDetailsPresenter.readData();
         return view;
     }
@@ -68,26 +83,9 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
     public void writeData(Food item) {
         this.menuName.setText(item.getName());
         this.menuDesc.setText(item.getDesc());
-        String[] bahanArray = item.getBahanArray();
-        String bahan = "";
-        for(int i = 0; i < bahanArray.length; i++){
-            bahan += bahanArray[i] + "\n";
-        }
-        this.menuBahan.setText(bahan);
-
-        String[] langkahArray = item.getLangkahArray();
-        String langkah = "";
-        for(int i = 0; i < langkahArray.length; i++){
-            langkah += langkahArray[i] + "\n";
-        }
-        this.menuLangkah.setText(langkah);
-
-        String[] restoranArray = item.getRestoranArray();
-        String restoran = "";
-        for(int i = 0; i < restoranArray.length; i++){
-            restoran += restoranArray[i] + "\n";
-        }
-        this.menuRestoran.setText(restoran);
+        this.menuBahan.setText(item.getBahan());
+        this.menuLangkah.setText(item.getLangkah());
+        this.menuRestoran.setText(item.getRestoran());
     }
 
     @Override
@@ -99,6 +97,40 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
     public void onClick(View view) {
         if(view == this.delete){
             this.menuDetailsPresenter.deleteRecord();
+        }
+        else if(view == this.save){
+            String name = this.menuName.getText().toString();
+            String desc = this.menuDesc.getText().toString();
+            String bahan = this.menuBahan.getText().toString();
+            String langkah = this.menuLangkah.getText().toString();
+            String restoran = this.menuRestoran.getText().toString();
+            this.menuDetailsPresenter.saveRecord(name, desc, bahan, langkah, restoran);
+        }
+
+        else if(view == this.nameEdit){
+            this.menuName.setFocusableInTouchMode(true);
+            this.menuName.setFocusable(true);
+            this.menuName.requestFocus();
+        }
+        else if(view == this.descEdit){
+            this.menuDesc.setFocusableInTouchMode(true);
+            this.menuDesc.setFocusable(true);
+            this.menuDesc.requestFocus();
+        }
+        else if(view == this.bahanEdit){
+            this.menuBahan.setFocusableInTouchMode(true);
+            this.menuBahan.setFocusable(true);
+            this.menuBahan.requestFocus();
+        }
+        else if(view == this.langkahEdit){
+            this.menuLangkah.setFocusableInTouchMode(true);
+            this.menuLangkah.setFocusable(true);
+            this.menuLangkah.requestFocus();
+        }
+        else if(view == this.restoranEdit){
+            this.menuRestoran.setFocusableInTouchMode(true);
+            this.menuRestoran.setFocusable(true);
+            this.menuRestoran.requestFocus();
         }
     }
 }

@@ -16,7 +16,7 @@ public class NewMenuPresenter {
     }
 
     public void addNewMenu(String name, String desc, String bahan, String langkah, String restoran){
-        Food item = new Food(0, name, desc, bahan.split(";"), langkah.split(";"), restoran.split(";"));
+        Food item = new Food(0, name, desc, bahan.split("\\n"), langkah.split("\\n"), restoran.split("\\n"));
         this.db.addRecord(item);
         ui.clearForm();
         ui.changePage();

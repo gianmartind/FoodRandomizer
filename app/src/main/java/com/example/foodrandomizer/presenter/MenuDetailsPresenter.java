@@ -24,6 +24,12 @@ public class MenuDetailsPresenter {
         this.ui.changePage();
     }
 
+    public void saveRecord(String name, String desc, String bahan, String langkah, String restoran){
+        Food item = new Food(this.id, name, desc, bahan.split("\\n"), langkah.split("\\n"), restoran.split("\\n"));
+        this.db.updateRecord(item);
+        this.ui.changePage();
+    }
+
     public interface IMenuDetails{
         void writeData(Food item);
         void changePage();

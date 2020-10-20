@@ -52,13 +52,9 @@ public class Food {
     public String getBahan() {
         String res = "";
         for(int i = 0; i < bahan.length; i++){
-            res += bahan[i] + ";";
+            res += bahan[i] + "\n";
         }
         return res;
-    }
-
-    public String[] getBahanArray(){
-        return this.bahan;
     }
 
     public void setLangkah(String[] langkah) {
@@ -68,13 +64,9 @@ public class Food {
     public String getLangkah() {
         String res = "";
         for(int i = 0; i < langkah.length; i++){
-            res += langkah[i] + ";";
+            res += langkah[i] + "\n";
         }
         return res;
-    }
-
-    public String[] getLangkahArray(){
-        return this.langkah;
     }
 
     public void setRestoran(String[] restoran) {
@@ -84,12 +76,8 @@ public class Food {
     public String getRestoran() {
         String res = "";
         for(int i = 0; i < restoran.length; i++){
-            res += restoran[i] + ";";
+            res += restoran[i] + "\n";
         }
         return res;
-    }
-
-    public String[] getRestoranArray(){
-        return this.restoran;
     }
 }
