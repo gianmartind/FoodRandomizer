@@ -22,15 +22,12 @@ public class MenuPagePresenter {
         this.ui.UpdateList(this.foods);
     }
 
-    public void addNew(String title, String details){
-        Food item = new Food(title, details);
-        this.foods.add(item);
-        this.ui.UpdateList(this.foods);
-        this.ui.resetAddForm();
+    public void addNew(){
+        ui.changePage();
     }
 
     public interface IMenuPage{
         void UpdateList(List<Food> data);
-        void resetAddForm();
+        void changePage();
     }
 }

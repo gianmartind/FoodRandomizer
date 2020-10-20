@@ -66,7 +66,7 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onClick(View view) {
         if(view == this.fab){
-            fragmentListener.changePage(5);
+            this.menuPagePresenter.addNew();
         }
     }
 
@@ -77,7 +77,8 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
     }
 
     @Override
-    public void resetAddForm() {
-
+    public void changePage() {
+        fragmentListener.changePage(5);
     }
+
 }

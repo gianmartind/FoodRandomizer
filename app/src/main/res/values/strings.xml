@@ -7,4 +7,14 @@
     <string name="makan">Mau makan apa hari ini?</string>
     <string name="menu_page_title">Menu List</string>
     <string name="new_menu_title">Add New Menu</string>
+    <string name="menu_name">Menu Name: </string>
+    <string name="menu_desc">Menu Desc: </string>
+    <string name="menu_bahan">Bahan: </string>
+    <string name="menu_langkah">Langkah Memasak: </string>
+    <string name="menu_restoran">Tersedia di Restoran: </string>
+    <string name="add_new">Add New Menu</string>
+    <string name="settings_title">Settings Page</string>
+    <string name="modeDark">Dark</string>
+    <string name="modeLight">Light</string>
+    <string name="modeDefault">System Default</string>
 </resources>

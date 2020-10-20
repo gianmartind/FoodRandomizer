@@ -20,6 +20,7 @@
             android:fontFamily="@font/abril"
             android:padding="45px"
 
+            android:textColor="?android:attr/textColorPrimary"
             android:text="@string/menu_page_title"
             android:textSize="40dp" />
 
@@ -35,6 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:src="@drawable/ic_baseline_add_24"
+        android:backgroundTint="@color/lightBlue"
+        android:tint="#000000"
         android:layout_margin="22dp"
         app:fabSize="normal"
         app:borderWidth="0dp"

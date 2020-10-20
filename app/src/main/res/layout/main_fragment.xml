@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:text="@string/makan"
         android:textAlignment="center"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="32sp"
-        android:textColor="@color/colorPrimaryDark"
         android:fontFamily="@font/ubuntu"/>
 
     <View
