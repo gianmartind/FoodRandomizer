@@ -52,7 +52,7 @@ public class Food {
     public String getBahan() {
         String res = "";
         for(int i = 0; i < bahan.length; i++){
-            res += bahan[i] + "\n";
+            res += bahan[i] + ";";
         }
         return res;
     }
@@ -64,7 +64,7 @@ public class Food {
     public String getLangkah() {
         String res = "";
         for(int i = 0; i < langkah.length; i++){
-            res += langkah[i] + "\n";
+            res += langkah[i] + ";";
         }
         return res;
     }
@@ -76,7 +76,7 @@ public class Food {
     public String getRestoran() {
         String res = "";
         for(int i = 0; i < restoran.length; i++){
-            res += restoran[i] + "\n";
+            res += restoran[i] + ";";
         }
         return res;
     }

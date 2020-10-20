@@ -17,5 +17,5 @@
     <string name="modeDark">Dark</string>
     <string name="modeLight">Light</string>
     <string name="modeDefault">System Default</string>
-    <string name="input_hint"><font size="12">input separated by newline</font></string>
+    <string name="input_hint"><font size="12">input separated by ;</font></string>
 </resources>

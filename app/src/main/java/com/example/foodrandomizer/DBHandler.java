@@ -65,7 +65,7 @@ public class DBHandler extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        Food food = new Food(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3).split("\\\\r?\\\\n"), cursor.getString(4).split("\\\\r?\\\\n"), cursor.getString(5).split("\\\\r?\\\\n"));
+        Food food = new Food(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3).split(";"), cursor.getString(4).split(";"), cursor.getString(5).split(";"));
         return food;
     }
 
@@ -83,9 +83,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 food.setId(Integer.parseInt(cursor.getString(0)));
                 food.setName(cursor.getString(1));
                 food.setDesc(cursor.getString(2));
-                food.setBahan(cursor.getString(3).split("\\\\r?\\\\n"));
-                food.setLangkah(cursor.getString(4).split("\\\\r?\\\\n"));
-                food.setRestoran(cursor.getString(5).split("\\\\r?\\\\n"));
+                food.setBahan(cursor.getString(3).split(";"));
+                food.setLangkah(cursor.getString(4).split(";"));
+                food.setRestoran(cursor.getString(5).split(";"));
 
                 foodList.add(food);
             } while (cursor.moveToNext());
