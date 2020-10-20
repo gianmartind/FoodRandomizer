@@ -25,6 +25,11 @@ public class MenuPagePresenter {
         this.ui.UpdateList(this.foods);
     }
 
+    public void openDetails(int id){
+        int id2 = this.foods.get(id).getId();
+        this.ui.openDetails(id2);
+    }
+
     public void addNew(){
         ui.changePage();
     }
@@ -32,5 +37,6 @@ public class MenuPagePresenter {
     public interface IMenuPage{
         void UpdateList(List<Food> data);
         void changePage();
+        void openDetails(int id2);
     }
 }

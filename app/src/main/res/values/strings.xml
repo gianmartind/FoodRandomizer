@@ -18,4 +18,7 @@
     <string name="modeLight">Light</string>
     <string name="modeDefault">System Default</string>
     <string name="input_hint"><font size="12">input separated by ;</font></string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="menu_details_title">Menu Details</string>
 </resources>

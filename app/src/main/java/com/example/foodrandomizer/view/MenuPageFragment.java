@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
@@ -17,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-public class MenuPageFragment extends Fragment implements View.OnClickListener, MenuPagePresenter.IMenuPage {
+public class MenuPageFragment extends Fragment implements View.OnClickListener, MenuPagePresenter.IMenuPage, AdapterView.OnItemClickListener {
     private DBHandler db;
     private MenuPageAdapter adapter;
     private ListView menuList;
@@ -50,6 +51,7 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
 
         this.adapter = new MenuPageAdapter(this.getActivity());
         this.menuList.setAdapter(this.adapter);
+        this.menuList.setOnItemClickListener(this);
 
         menuPagePresenter.loadData();
         //this.menuPageViewModel.loadData();
@@ -84,4 +86,14 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
         fragmentListener.changePage(5);
     }
 
+    @Override
+    public void openDetails(int id2) {
+        this.fragmentListener.changeMenuId(id2);
+        this.fragmentListener.changePage(6);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        this.menuPagePresenter.openDetails(i);
+    }
 }

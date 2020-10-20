@@ -93,4 +93,26 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return foodList;
     }
+
+    public int updateRecord(Food item) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, item.getName());
+        values.put(KEY_DESC, item.getDesc());
+        values.put(KEY_BAHAN, item.getBahan());
+        values.put(KEY_LANGKAH, item.getLangkah());
+        values.put(KEY_RESTORAN, item.getRestoran());
+
+        // updating row
+        return db.update(TABLE_FOOD, values, KEY_ID + " = ?",
+                new String[] { String.valueOf(item.getId()) });
+    }
+
+    public void deleteRecord(Food item) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_FOOD, KEY_ID + " = ?",
+                new String[] { String.valueOf(item.getId()) });
+        db.close();
+    }
 }

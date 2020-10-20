@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     NewMenuFragment newMenuFragment;
     SettingsFragment settingsFragment;
     SettingsPrefSaver settingsPrefSaver;
+    MenuDetailsFragment menuDetailsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         this.menuPageFragment = new MenuPageFragment();
         this.newMenuFragment = new NewMenuFragment();
         this.settingsFragment = new SettingsFragment();
+        this.menuDetailsFragment = MenuDetailsFragment.newInstance(0);
 
         this.fragmentManager = this.getSupportFragmentManager();
         this.settingsPrefSaver = new SettingsPrefSaver(this);
@@ -76,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
             */
         } else if(page == 5){
             ft.replace(R.id.fragment_container, this.newMenuFragment).addToBackStack(null);
+        } else if(page == 6){
+            ft.replace(R.id.fragment_container, this.menuDetailsFragment).addToBackStack(null);
         }
         ft.commit();
         this.bind.drawerLayout.closeDrawers();
@@ -90,5 +94,10 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     public void closeApplication(){
         this.moveTaskToBack(true);
         this.finish();
+    }
+
+    @Override
+    public void changeMenuId(int id) {
+        this.menuDetailsFragment = MenuDetailsFragment.newInstance(id);
     }
 }

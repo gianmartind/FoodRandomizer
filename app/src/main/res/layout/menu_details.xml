@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/menu_page_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/abril"
+        android:padding="45px"
+        android:textColor="?android:attr/textColorPrimary"
+        android:text="@string/menu_details_title"
+        android:textSize="40dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="40px">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:textSize="50sp"
+                    android:background="?android:colorBackground"
+                    android:fontFamily="@font/ubuntu"
+                    android:id="@+id/menu_name"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="40px">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="2"
+                    android:textColor="?android:attr/textColorHint"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ubuntu"
+                    android:background="?android:colorBackground"
+                    android:id="@+id/menu_desc"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="40px">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/menu_bahan"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:fontFamily="@font/ubuntu"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:lines="3"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:hint="@string/input_hint"
+                    android:fontFamily="@font/ubuntu"
+                    android:id="@+id/menu_bahan"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="40px">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/menu_langkah"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:fontFamily="@font/ubuntu"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:lines="4"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:hint="@string/input_hint"
+                    android:fontFamily="@font/ubuntu"
+                    android:id="@+id/menu_langkah"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="40px">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/menu_restoran"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:fontFamily="@font/ubuntu" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:lines="3"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:hint="@string/input_hint"
+                    android:fontFamily="@font/ubuntu"
+                    android:id="@+id/menu_restoran"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="@drawable/ripple_button"
+
+            android:text="@string/save"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/save"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_button"
+            android:backgroundTint="#8B0000"
+            android:text="@string/delete"
+            android:textColor="@color/lightBlue"
+            android:id="@+id/delete"/>
+    </LinearLayout>
+
+
+</LinearLayout>
