@@ -15,69 +15,57 @@ import java.util.List;
 import java.util.Locale;
 
 public class SearchPageAdapter extends BaseAdapter {
-    Context context;
-    LayoutInflater inflater;
-    private List<Food> foodlist;
-    private ArrayList<Food> arraylist;
+    private List<Food> foodList;
+    private Context fragment;
 
-    public SearchPageAdapter(Context context, List<Food> foodlist){
-        context = context;
-        this.foodlist = foodlist;
-        inflater = LayoutInflater.from(context);
-        this.arraylist = new ArrayList<Food>();
-        this.arraylist.addAll(foodlist);
+    public SearchPageAdapter(Context fragment){
+        this.fragment = fragment;
+        this.foodList = new ArrayList<>();
     }
 
     @Override
-    public int getCount(){
-        return foodlist.size();
+    public int getCount() {
+        return foodList.size();
     }
 
     @Override
-    public Food getItem(int position){
-        return foodlist.get(position);
+    public Object getItem(int i) {
+        return foodList.get(i);
     }
 
     @Override
-    public long getItemId(int position){
-        return position;
+    public long getItemId(int i) {
+        return 0;
     }
 
-    public View getView(final int position, View view, ViewGroup parent){
-        final ViewHolder holder;
-        if(view==null){
-            holder = new ViewHolder();
-            view = inflater.inflate(R.layout.menu_list_item,null);
-            holder.namaMakanan = (TextView) view.findViewById(R.id.menu_name);
-            holder.deskripsiMakanan = (TextView) view.findViewById(R.id.menu_desc);
-            view.setTag(holder);
-        }
-        else{
-            holder = (ViewHolder) view.getTag();
-        }
-        holder.namaMakanan.setText(foodlist.get(position).getName());
-        holder.deskripsiMakanan.setText(foodlist.get(position).getDesc());
+    public void updateList(List<Food> newList){
+        this.foodList = newList;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        view = LayoutInflater.from(this.fragment).inflate(R.layout.menu_list_item, viewGroup,false);
+        SearchPageAdapter.ViewHolder viewHolder = new SearchPageAdapter.ViewHolder(view);;
+        Food current = (Food) this.getItem(i);
+        viewHolder.updateView(current);
+        view.setTag(viewHolder);
+
         return view;
     }
 
-    public void filter(String text){
-        text = text.toLowerCase(Locale.getDefault());
-        foodlist.clear();
-        if(text.length()==0){
-            foodlist.addAll(arraylist);
-        }
-        else{
-            for (Food makan : arraylist){
-                if(makan.getName().toLowerCase(Locale.getDefault()).contains(text)){
-                    foodlist.add(makan);
-                }
-            }
-        }
-        notifyDataSetChanged();
-    }
     public class ViewHolder{
-        TextView namaMakanan;
-        TextView deskripsiMakanan;
+        protected TextView menuName;
+        protected TextView menuDesc;
+
+        public ViewHolder(View view){
+            this.menuName = view.findViewById(R.id.menu_name);
+            this.menuDesc = view.findViewById(R.id.menu_desc);
+        }
+
+        public void updateView(final Food food){
+            this.menuName.setText(food.getName());
+            this.menuDesc.setText(food.getDesc());
+        }
     }
 
 }
