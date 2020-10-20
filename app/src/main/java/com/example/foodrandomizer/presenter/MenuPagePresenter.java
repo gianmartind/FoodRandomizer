@@ -1,5 +1,6 @@
 package com.example.foodrandomizer.presenter;
 
+import com.example.foodrandomizer.DBHandler;
 import com.example.foodrandomizer.MockFood;
 import com.example.foodrandomizer.model.Food;
 
@@ -10,15 +11,17 @@ import java.util.List;
 public class MenuPagePresenter {
     protected List<Food> foods;
     protected IMenuPage ui;
+    protected DBHandler db;
 
-
-    public MenuPagePresenter(IMenuPage view){
+    public MenuPagePresenter(IMenuPage view, DBHandler db){
         this.foods = new ArrayList<>();
+        this.db = db;
         this.ui = view;
     }
 
     public void loadData(){
-        this.foods.addAll(Arrays.asList(MockFood.foodObjectArr));
+        List<Food> foodList = db.getAllFoodsWithName("");
+        this.foods.addAll(foodList);
         this.ui.UpdateList(this.foods);
     }
 

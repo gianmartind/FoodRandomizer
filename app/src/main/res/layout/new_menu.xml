@@ -92,7 +92,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:lines="3"
+                    android:inputType="textMultiLine"
                     android:textColor="?android:attr/textColorPrimary"
+                    android:hint="@string/input_hint"
                     android:fontFamily="@font/ubuntu"
                     android:id="@+id/menu_bahan"/>
 
@@ -116,7 +118,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:lines="4"
+                    android:inputType="textMultiLine"
                     android:textColor="?android:attr/textColorPrimary"
+                    android:hint="@string/input_hint"
                     android:fontFamily="@font/ubuntu"
                     android:id="@+id/menu_langkah"/>
 
@@ -140,7 +144,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:lines="3"
+                    android:inputType="textMultiLine"
                     android:textColor="?android:attr/textColorPrimary"
+                    android:hint="@string/input_hint"
                     android:fontFamily="@font/ubuntu"
                     android:id="@+id/menu_restoran"/>
 

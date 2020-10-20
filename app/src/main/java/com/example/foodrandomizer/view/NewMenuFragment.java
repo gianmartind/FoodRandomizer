@@ -6,19 +6,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.foodrandomizer.DBHandler;
 import com.example.foodrandomizer.R;
 import com.example.foodrandomizer.presenter.NewMenuPresenter;
 
 public class NewMenuFragment extends Fragment implements View.OnClickListener, NewMenuPresenter.INewMenu {
     private FragmentListener fragmentListener;
-    TextView menuName, menuDesc, menuBahan, menuLangkah, menuRestoran;
+    EditText menuName, menuDesc, menuBahan, menuLangkah, menuRestoran;
     Button addNew;
+    DBHandler db;
     NewMenuPresenter newMenuPresenter;
     public NewMenuFragment(){}
 
@@ -33,7 +36,8 @@ public class NewMenuFragment extends Fragment implements View.OnClickListener, N
         this.menuRestoran = view.findViewById(R.id.menu_restoran);
         this.addNew = view.findViewById(R.id.add_new);
 
-        this.newMenuPresenter = new NewMenuPresenter(this);
+        this.db = new DBHandler(this.getContext());
+        this.newMenuPresenter = new NewMenuPresenter(this, this.db);
 
         this.addNew.setOnClickListener(this);
         return view;
@@ -50,12 +54,26 @@ public class NewMenuFragment extends Fragment implements View.OnClickListener, N
 
     @Override
     public void onClick(View view) {
-        this.newMenuPresenter.addNewMenu(this.menuName.getText().toString(), this.menuDesc.getText().toString());
+        String name = this.menuName.getText().toString();
+        String desc = this.menuDesc.getText().toString();
+        String bahan = this.menuBahan.getText().toString();
+        String langkah = this.menuLangkah.getText().toString();
+        String restoran = this.menuRestoran.getText().toString();
+        this.newMenuPresenter.addNewMenu(name, desc, bahan, langkah, restoran);
     }
 
 
     @Override
     public void changePage() {
         fragmentListener.changePage(2);
+    }
+
+    @Override
+    public void clearForm() {
+        this.menuName.setText("");
+        this.menuDesc.setText("");
+        this.menuBahan.setText("");
+        this.menuLangkah.setText("");
+        this.menuRestoran.setText("");
     }
 }

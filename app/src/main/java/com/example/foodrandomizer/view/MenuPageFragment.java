@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.foodrandomizer.DBHandler;
 import com.example.foodrandomizer.presenter.MenuPagePresenter;
 import com.example.foodrandomizer.R;
 import com.example.foodrandomizer.model.Food;
@@ -17,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class MenuPageFragment extends Fragment implements View.OnClickListener, MenuPagePresenter.IMenuPage {
+    private DBHandler db;
     private MenuPageAdapter adapter;
     private ListView menuList;
     private MenuPagePresenter menuPagePresenter;
@@ -39,8 +41,9 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
             }
         });
         */
+        this.db = new DBHandler(this.getActivity());
+        this.menuPagePresenter = new MenuPagePresenter(this, this.db);
 
-        this.menuPagePresenter = new MenuPagePresenter(this);
 
         this.fab = view.findViewById(R.id.fab);
         this.fab.setOnClickListener(this);
