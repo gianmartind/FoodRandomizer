@@ -87,6 +87,7 @@
                     android:inputType="none"
                     android:focusable="false"
                     android:hint="@string/input_hint"
+                    android:background="?android:colorBackground"
                     android:fontFamily="@font/ubuntu"
                     android:id="@+id/menu_bahan"/>
 
@@ -115,6 +116,7 @@
                     android:focusable="false"
                     android:hint="@string/input_hint"
                     android:fontFamily="@font/ubuntu"
+                    android:background="?android:colorBackground"
                     android:id="@+id/menu_langkah"/>
 
             </LinearLayout>
@@ -141,6 +143,7 @@
                     android:inputType="none"
                     android:focusable="false"
                     android:hint="@string/input_hint"
+                    android:background="?android:colorBackground"
                     android:fontFamily="@font/ubuntu"
                     android:id="@+id/menu_restoran"/>
 
