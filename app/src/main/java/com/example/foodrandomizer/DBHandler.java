@@ -94,6 +94,23 @@ public class DBHandler extends SQLiteOpenHelper {
         return foodList;
     }
 
+    public List<Integer> getAllFoodsId(){
+        List<Integer> foodList = new ArrayList<Integer>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_FOOD;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                foodList.add(Integer.parseInt(cursor.getString(0)));
+            } while (cursor.moveToNext());
+        }
+
+        return foodList;
+    }
+
     public int updateRecord(Food item) {
         SQLiteDatabase db = this.getWritableDatabase();
 

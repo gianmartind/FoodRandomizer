@@ -99,7 +99,7 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
     @Override
     public void onClick(View view) {
         if(view == this.delete){
-            this.menuDetailsPresenter.deleteRecord();
+            this.menuDetailsPresenter.openDeleteDialog(this.getActivity());
         }
         else if(view == this.save){
             String name = this.menuName.getText().toString();

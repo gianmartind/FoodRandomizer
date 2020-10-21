@@ -97,7 +97,7 @@
                     android:lines="3"
                     android:textColor="?android:attr/textColorPrimary"
                     android:focusableInTouchMode="false"
-                    android:hint="@string/input_hint"
+                    android:hint="@string/empty"
                     android:background="?android:colorBackground"
                     android:fontFamily="@font/ubuntu"
                     android:id="@+id/menu_bahan"/>
@@ -130,7 +130,7 @@
                     android:lines="4"
                     android:textColor="?android:attr/textColorPrimary"
                     android:focusableInTouchMode="false"
-                    android:hint="@string/input_hint"
+                    android:hint="@string/empty"
                     android:fontFamily="@font/ubuntu"
                     android:background="?android:colorBackground"
                     android:id="@+id/menu_langkah"/>
@@ -163,7 +163,7 @@
                     android:lines="3"
                     android:textColor="?android:attr/textColorPrimary"
                     android:focusableInTouchMode="false"
-                    android:hint="@string/input_hint"
+                    android:hint="@string/empty"
                     android:background="?android:colorBackground"
                     android:fontFamily="@font/ubuntu"
                     android:id="@+id/menu_restoran"/>
@@ -185,14 +185,6 @@
         android:orientation="horizontal">
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:background="@drawable/ripple_button"
-            android:text="@string/save"
-            android:textColor="@color/colorPrimaryDark"
-            android:id="@+id/save"/>
-        <Button
-            android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:background="@drawable/ripple_button"
@@ -200,6 +192,16 @@
             android:text="@string/delete"
             android:textColor="@color/lightBlue"
             android:id="@+id/delete"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="@drawable/ripple_button"
+            android:text="@string/save"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/save"/>
+
     </LinearLayout>
 
 

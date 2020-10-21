@@ -16,9 +16,9 @@ public class MainPresenter {
     }
 
     public void createRandom(){
-        List<Food> foodList = this.db.getAllFoodsWithName("");
+        List<Integer> foodList = this.db.getAllFoodsId();
         int rand = generateRandom(0, foodList.size() - 1);
-        this.ui.openRandomMenu(foodList.get(rand).getId());
+        this.ui.openRandomMenu(foodList.get(rand));
     }
 
     public int generateRandom(int min, int max){
