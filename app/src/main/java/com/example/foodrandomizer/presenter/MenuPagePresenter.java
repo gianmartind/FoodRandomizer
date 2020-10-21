@@ -31,12 +31,12 @@ public class MenuPagePresenter {
     }
 
     public void addNew(){
-        ui.changePage();
+        ui.openAdd();
     }
 
     public interface IMenuPage{
         void UpdateList(List<Food> data);
-        void changePage();
+        void openAdd();
         void openDetails(int id2);
     }
 }

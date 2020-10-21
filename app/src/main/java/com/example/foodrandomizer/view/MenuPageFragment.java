@@ -82,7 +82,7 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
     }
 
     @Override
-    public void changePage() {
+    public void openAdd() {
         fragmentListener.changePage(5);
     }
 
