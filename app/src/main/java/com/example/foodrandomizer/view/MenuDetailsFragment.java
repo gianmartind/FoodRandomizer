@@ -112,27 +112,27 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
 
         else if(view == this.nameEdit){
             this.menuName.setFocusableInTouchMode(true);
-            this.menuName.setTextColor(this.getActivity().getResources().getColor(R.color.red));
+            this.menuName.setTextColor(this.getActivity().getResources().getColor(R.color.editBlue));
             this.menuName.requestFocus();
         }
         else if(view == this.descEdit){
             this.menuDesc.setFocusableInTouchMode(true);
-            this.menuDesc.setTextColor(this.getActivity().getResources().getColor(R.color.red));
+            this.menuDesc.setTextColor(this.getActivity().getResources().getColor(R.color.editBlue));
             this.menuDesc.requestFocus();
         }
         else if(view == this.bahanEdit){
             this.menuBahan.setFocusableInTouchMode(true);
-            this.menuBahan.setTextColor(this.getActivity().getResources().getColor(R.color.red));
+            this.menuBahan.setTextColor(this.getActivity().getResources().getColor(R.color.editBlue));
             this.menuBahan.requestFocus();
         }
         else if(view == this.langkahEdit){
             this.menuLangkah.setFocusableInTouchMode(true);
-            this.menuLangkah.setTextColor(this.getActivity().getResources().getColor(R.color.red));
+            this.menuLangkah.setTextColor(this.getActivity().getResources().getColor(R.color.editBlue));
             this.menuLangkah.requestFocus();
         }
         else if(view == this.restoranEdit){
             this.menuRestoran.setFocusableInTouchMode(true);
-            this.menuRestoran.setTextColor(this.getActivity().getResources().getColor(R.color.red));
+            this.menuRestoran.setTextColor(this.getActivity().getResources().getColor(R.color.editBlue));
             this.menuRestoran.requestFocus();
         }
     }
