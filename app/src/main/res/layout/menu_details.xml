@@ -47,7 +47,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:id="@+id/menu_name_edit"
-                    android:background="@drawable/ripple_edit_icon"/>
+                    android:background="@drawable/ripple_edit_icon" />
 
             </LinearLayout>
 
@@ -196,7 +196,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:background="@drawable/ripple_button"
-            android:backgroundTint="#8B0000"
+            android:backgroundTint="@color/darkRed"
             android:text="@string/delete"
             android:textColor="@color/lightBlue"
             android:id="@+id/delete"/>

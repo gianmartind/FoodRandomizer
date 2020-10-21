@@ -1,5 +1,6 @@
 package com.example.foodrandomizer.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -93,6 +95,7 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
         fragmentListener.changePage(2);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onClick(View view) {
         if(view == this.delete){
@@ -109,27 +112,27 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
 
         else if(view == this.nameEdit){
             this.menuName.setFocusableInTouchMode(true);
-            this.menuName.setFocusable(true);
+            this.menuName.setTextColor(this.getActivity().getResources().getColor(R.color.red));
             this.menuName.requestFocus();
         }
         else if(view == this.descEdit){
             this.menuDesc.setFocusableInTouchMode(true);
-            this.menuDesc.setFocusable(true);
+            this.menuDesc.setTextColor(this.getActivity().getResources().getColor(R.color.red));
             this.menuDesc.requestFocus();
         }
         else if(view == this.bahanEdit){
             this.menuBahan.setFocusableInTouchMode(true);
-            this.menuBahan.setFocusable(true);
+            this.menuBahan.setTextColor(this.getActivity().getResources().getColor(R.color.red));
             this.menuBahan.requestFocus();
         }
         else if(view == this.langkahEdit){
             this.menuLangkah.setFocusableInTouchMode(true);
-            this.menuLangkah.setFocusable(true);
+            this.menuLangkah.setTextColor(this.getActivity().getResources().getColor(R.color.red));
             this.menuLangkah.requestFocus();
         }
         else if(view == this.restoranEdit){
             this.menuRestoran.setFocusableInTouchMode(true);
-            this.menuRestoran.setFocusable(true);
+            this.menuRestoran.setTextColor(this.getActivity().getResources().getColor(R.color.red));
             this.menuRestoran.requestFocus();
         }
     }
