@@ -43,7 +43,6 @@ public class HistoryPresenter {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
                 clearAll();
-
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
