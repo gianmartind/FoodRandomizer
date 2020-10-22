@@ -2,27 +2,17 @@ package com.example.foodrandomizer.model;
 
 public class History {
     int id;
-    int foodId;
     String datetime;
     String foodName;
 
-    public History(int id, int foodId, String datetime, String foodName){
+    public History(int id, String datetime, String foodName){
         this.id = id;
-        this.foodId = foodId;
         this.datetime = datetime;
         this.foodName = foodName;
     }
 
     public History(){
 
-    }
-
-    public int getFoodId() {
-        return foodId;
-    }
-
-    public void setFoodId(int foodId) {
-        this.foodId = foodId;
     }
 
     public int getId() {

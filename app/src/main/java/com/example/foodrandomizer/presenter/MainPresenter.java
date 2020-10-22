@@ -21,16 +21,16 @@ public class MainPresenter {
     }
 
     public void createRandom(){
-        List<Integer> foodList = this.db.getAllFoodsId();
+        List<Food> foodList = this.db.getAllFoodsWithName("");
         int rand = 0;
         if(foodList.size() != 0){
             rand = generateRandom(0, foodList.size() - 1);
             Date date = Calendar.getInstance().getTime();
             DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
             String strDate = dateFormat.format(date);
-            History history = new History(0, foodList.get(rand), strDate, "");
+            History history = new History(0, strDate, foodList.get(rand).getName());
             this.db.addHistory(history);
-            this.ui.openRandomMenu(foodList.get(rand));
+            this.ui.openRandomMenu(foodList.get(rand).getId());
         }
     }
 

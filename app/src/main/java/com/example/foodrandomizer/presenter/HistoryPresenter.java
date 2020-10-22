@@ -56,7 +56,7 @@ public class HistoryPresenter {
     }
 
     public void deleteItem(int itemId){
-        History item = new History(itemId, 0,"","");
+        History item = new History(itemId, "", "");
         this.db.deleteHistory(item);
         loadData("");
     }

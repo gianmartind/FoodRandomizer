@@ -29,7 +29,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_RESTORAN = "restoran";
 
     private static final String KEY_DATETIME = "datetime";
-    private static final String KEY_FOODID = "foodid";
+    private static final String KEY_FOODNAME = "foodName";
 
     public DBHandler(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,7 +42,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + KEY_RESTORAN + " TEXT)";
 
         String CREATE_HISTORY_TABLE = "CREATE TABLE " + TABLE_HISTORY + "(" + KEY_ID + " INTEGER PRIMARY KEY, "
-                + KEY_DATETIME + " TEXT," + KEY_FOODID + " TEXT)";
+                + KEY_DATETIME + " TEXT," + KEY_FOODNAME + " TEXT)";
 
         sqLiteDatabase.execSQL(CREATE_FOODS_TABLE);
         sqLiteDatabase.execSQL(CREATE_HISTORY_TABLE);
@@ -74,7 +74,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_DATETIME, item.getDatetime());
-        values.put(KEY_FOODID, item.getFoodId());
+        values.put(KEY_FOODNAME, item.getFoodName());
 
         db.insert(TABLE_HISTORY, null, values);
         db.close();
@@ -83,9 +83,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public List<History> getAllHistoryWithName(String name){
         List<History> historyList = new ArrayList<History>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_FOOD + " INNER JOIN " + TABLE_HISTORY
-                + " ON " + TABLE_FOOD + "." + KEY_ID + "=" + TABLE_HISTORY + "." + KEY_FOODID
-                + " WHERE name LIKE '%" + name + "%'";
+        String selectQuery = "SELECT * FROM " + TABLE_HISTORY + " WHERE foodName LIKE '%" + name + "%'";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -93,10 +91,9 @@ public class DBHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 History history = new History();
-                history.setId(Integer.parseInt(cursor.getString(6)));
-                history.setDatetime(cursor.getString(7));
-                history.setFoodId(Integer.parseInt(cursor.getString(0)));
-                history.setFoodName(cursor.getString(1));
+                history.setId(Integer.parseInt(cursor.getString(0)));
+                history.setDatetime(cursor.getString(1));
+                history.setFoodName(cursor.getString(2));
 
                 historyList.add(history);
             } while (cursor.moveToNext());
