@@ -26,4 +26,5 @@
     <string name="history_page_title">History</string>
     <string name="clear">clear</string>
     <string name="delete_hint">tap to delete</string>
+    <string name="history_hint">Search by menu name</string>
 </resources>

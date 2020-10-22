@@ -14,7 +14,7 @@ public class History {
     }
 
     public History(){
-        //empty
+
     }
 
     public int getFoodId() {

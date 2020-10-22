@@ -30,5 +30,6 @@
         android:textColor="?android:attr/textColorHint"
         android:textSize="12sp"
         android:textAlignment="textEnd"
+        android:textStyle="italic"
         android:text="@string/delete_hint"/>
 </LinearLayout>

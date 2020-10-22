@@ -38,7 +38,7 @@
         android:id="@+id/pencarian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:queryHint="@string/pencarian_menu"
+        android:queryHint="@string/history_hint"
         android:iconifiedByDefault="false"/>
 
     <ListView
