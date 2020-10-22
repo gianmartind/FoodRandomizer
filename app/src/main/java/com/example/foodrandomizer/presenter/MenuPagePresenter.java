@@ -1,11 +1,9 @@
 package com.example.foodrandomizer.presenter;
 
 import com.example.foodrandomizer.DBHandler;
-import com.example.foodrandomizer.MockFood;
 import com.example.foodrandomizer.model.Food;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MenuPagePresenter {
