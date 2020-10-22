@@ -7,23 +7,28 @@
     android:padding="40px">
 
     <TextView
-        android:id="@+id/menu_name"
+        android:id="@+id/datetime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ubuntu"
         android:textColor="?android:attr/textColorPrimary"
-        android:textSize="26sp"
-        android:maxHeight="32dp"
-        android:text="Menu Name" />
-    
+        android:textSize="20sp" />
+
     <TextView
-        android:id="@+id/menu_desc"
+        android:id="@+id/menu_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxHeight="32dp"
         android:fontFamily="@font/ubuntu"
-        android:textColor="?android:attr/textColorHint"
-        android:textSize="14sp"
-        android:text="Menu Description"/>
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="20sp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="?android:attr/textColorHint"
+        android:textSize="12sp"
+        android:textAlignment="textEnd"
+        android:text="@string/delete_hint"/>
 </LinearLayout>

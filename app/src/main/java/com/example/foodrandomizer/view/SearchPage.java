@@ -28,7 +28,6 @@ public class SearchPage extends Fragment implements SearchView.OnQueryTextListen
     private ListView menuList;
     private SearchPresenter searchPresenter;
     FragmentListener fragmentListener;
-    private FloatingActionButton fab;
     private SearchView search;
 
     public SearchPage(){};

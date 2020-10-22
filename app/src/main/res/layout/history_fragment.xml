@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10px">
+
+        <TextView
+            android:id="@+id/history_page_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/abril"
+            android:padding="35px"
+            android:textColor="?android:attr/textColorPrimary"
+            android:text="@string/history_page_title"
+            android:textSize="40dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ripple_button"
+            android:backgroundTint="@color/darkRed"
+            android:src="@drawable/clear_icon"
+            android:tint="@color/lightBlue"
+            android:layout_gravity="center"
+            android:id="@+id/clear"/>
+
+    </LinearLayout>
+
+    <SearchView
+        android:id="@+id/pencarian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:queryHint="@string/pencarian_menu"
+        android:iconifiedByDefault="false"/>
+
+    <ListView
+        android:id="@+id/list_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

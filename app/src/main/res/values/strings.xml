@@ -23,4 +23,7 @@
     <string name="menu_details_title">Menu Details</string>
     <string name="pencarian_menu">Search Menu</string>
     <string name="empty"><font size="12">empty...</font></string>
+    <string name="history_page_title">History</string>
+    <string name="clear">clear</string>
+    <string name="delete_hint">tap to delete</string>
 </resources>

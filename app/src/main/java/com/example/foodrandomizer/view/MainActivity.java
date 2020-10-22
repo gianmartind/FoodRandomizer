@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     SettingsPrefSaver settingsPrefSaver;
     MenuDetailsFragment menuDetailsFragment;
     SearchPage searchPage;
+    HistoryFragment historyFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         this.settingsFragment = new SettingsFragment();
         this.searchPage = new SearchPage();
         this.menuDetailsFragment = MenuDetailsFragment.newInstance(0);
+        this.historyFragment = new HistoryFragment();
 
         this.fragmentManager = this.getSupportFragmentManager();
         this.settingsPrefSaver = new SettingsPrefSaver(this);
@@ -75,15 +77,11 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         }
         else if(page == 3){
             ft.replace(R.id.fragment_container, this.settingsFragment).addToBackStack(null);
-            /*
-            int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-            if(nightModeFlags == Configuration.UI_MODE_NIGHT_YES){
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            } else{
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }
-            */
-        } else if(page == 5){
+        } else if(page ==4){
+            ft.replace(R.id.fragment_container, this.historyFragment).addToBackStack(null);
+        }
+
+        else if(page == 5){
             ft.replace(R.id.fragment_container, this.newMenuFragment).addToBackStack(null);
         } else if(page == 6){
             ft.replace(R.id.fragment_container, this.menuDetailsFragment).addToBackStack(null);

@@ -38,7 +38,7 @@ public class MenuDetailsPresenter {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
-                deleteRecord();   // stop chronometer here
+                deleteRecord();
 
             }
         });

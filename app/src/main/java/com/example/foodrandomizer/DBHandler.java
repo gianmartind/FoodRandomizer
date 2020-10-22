@@ -5,10 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.foodrandomizer.model.Food;
+import com.example.foodrandomizer.model.History;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "FoodRandomizer";
     private static final String TABLE_FOOD = "foods";
+    private static final String TABLE_HISTORY = "history";
 
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
@@ -24,6 +27,9 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_BAHAN = "bahan";
     private static final String KEY_LANGKAH = "langkah";
     private static final String KEY_RESTORAN = "restoran";
+
+    private static final String KEY_DATETIME = "datetime";
+    private static final String KEY_FOODID = "foodid";
 
     public DBHandler(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,12 +41,17 @@ public class DBHandler extends SQLiteOpenHelper {
                 + KEY_NAME + " TEXT," + KEY_DESC + " TEXT," + KEY_BAHAN + " TEXT," + KEY_LANGKAH + " TEXT,"
                 + KEY_RESTORAN + " TEXT)";
 
+        String CREATE_HISTORY_TABLE = "CREATE TABLE " + TABLE_HISTORY + "(" + KEY_ID + " INTEGER PRIMARY KEY, "
+                + KEY_DATETIME + " TEXT," + KEY_FOODID + " TEXT)";
+
         sqLiteDatabase.execSQL(CREATE_FOODS_TABLE);
+        sqLiteDatabase.execSQL(CREATE_HISTORY_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
         onCreate(sqLiteDatabase);
     }
 
@@ -56,6 +67,41 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.insert(TABLE_FOOD, null, values);
         db.close();
+    }
+
+    public void addHistory(History item){
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_DATETIME, item.getDatetime());
+        values.put(KEY_FOODID, item.getFoodId());
+
+        db.insert(TABLE_HISTORY, null, values);
+        db.close();
+    }
+
+    public List<History> getAllHistoryWithName(String name){
+        List<History> historyList = new ArrayList<History>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_FOOD + " INNER JOIN " + TABLE_HISTORY
+                + " ON " + TABLE_FOOD + "." + KEY_ID + "=" + TABLE_HISTORY + "." + KEY_FOODID
+                + " WHERE name LIKE '%" + name + "%'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                History history = new History();
+                history.setId(Integer.parseInt(cursor.getString(6)));
+                history.setDatetime(cursor.getString(7));
+                history.setFoodId(Integer.parseInt(cursor.getString(0)));
+                history.setFoodName(cursor.getString(1));
+
+                historyList.add(history);
+            } while (cursor.moveToNext());
+        }
+        return historyList;
     }
 
     public Food getFoodWithId(int id) {
@@ -130,6 +176,19 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_FOOD, KEY_ID + " = ?",
                 new String[] { String.valueOf(item.getId()) });
+        db.close();
+    }
+
+    public void deleteHistory(History item) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_HISTORY, KEY_ID + " = ?",
+                new String[] { String.valueOf(item.getId()) });
+        db.close();
+    }
+
+    public void deleteAllHistory(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_HISTORY, null, null);
         db.close();
     }
 }

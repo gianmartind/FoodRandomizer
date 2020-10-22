@@ -78,6 +78,9 @@ public class LeftDrawer extends Fragment implements AdapterView.OnItemClickListe
             this.leftDrawerPresenter.changePage(3);
         }
         else if(i == 4){
+            this.leftDrawerPresenter.changePage(4);
+        }
+        else if(i == 5){
             this.leftDrawerPresenter.closeApp();
         }
     }
