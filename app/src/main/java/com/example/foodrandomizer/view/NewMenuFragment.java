@@ -59,7 +59,7 @@ public class NewMenuFragment extends Fragment implements View.OnClickListener, N
         String bahan = this.menuBahan.getText().toString();
         String langkah = this.menuLangkah.getText().toString();
         String restoran = this.menuRestoran.getText().toString();
-        this.newMenuPresenter.addNewMenu(name, desc, bahan, langkah, restoran);
+        this.newMenuPresenter.addNewMenu(name, desc, bahan, langkah, restoran, this.getActivity());
     }
 
 

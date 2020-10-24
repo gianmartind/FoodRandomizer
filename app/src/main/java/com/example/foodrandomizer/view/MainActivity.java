@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         } else if(page ==4){
             ft.replace(R.id.fragment_container, this.historyFragment).addToBackStack(null);
         }
-
         else if(page == 5){
             ft.replace(R.id.fragment_container, this.newMenuFragment).addToBackStack(null);
         } else if(page == 6){

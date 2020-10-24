@@ -115,7 +115,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public List<Food> getAllFoodsWithName(String name){
         List<Food> foodList = new ArrayList<Food>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_FOOD + " WHERE name LIKE '%" + name + "%'" ;
+        String selectQuery = "SELECT * FROM " + TABLE_FOOD + " WHERE name LIKE '%" + name + "%'" ;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -137,17 +137,25 @@ public class DBHandler extends SQLiteOpenHelper {
         return foodList;
     }
 
-    public List<Integer> getAllFoodsId(){
-        List<Integer> foodList = new ArrayList<Integer>();
+    public List<Food> getAllFoodsWithBahan(String bahan){
+        List<Food> foodList = new ArrayList<Food>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_FOOD;
+        String selectQuery = "SELECT * FROM " + TABLE_FOOD + " WHERE bahan LIKE '%" + bahan + "%'" ;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
             do {
-                foodList.add(Integer.parseInt(cursor.getString(0)));
+                Food food = new Food();
+                food.setId(Integer.parseInt(cursor.getString(0)));
+                food.setName(cursor.getString(1));
+                food.setDesc(cursor.getString(2));
+                food.setBahan(cursor.getString(3).split("\\n"));
+                food.setLangkah(cursor.getString(4).split("\\n"));
+                food.setRestoran(cursor.getString(5).split("\\n"));
+
+                foodList.add(food);
             } while (cursor.moveToNext());
         }
 
@@ -174,6 +182,16 @@ public class DBHandler extends SQLiteOpenHelper {
         db.delete(TABLE_FOOD, KEY_ID + " = ?",
                 new String[] { String.valueOf(item.getId()) });
         db.close();
+    }
+
+    public int getFoodCount() {
+        String countQuery = "SELECT * FROM " + TABLE_FOOD;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        // return count
+        return cursor.getCount();
     }
 
     public void deleteHistory(History item) {

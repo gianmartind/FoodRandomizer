@@ -58,7 +58,7 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
         this.langkahEdit.setOnClickListener(this);
         this.restoranEdit.setOnClickListener(this);
 
-        this.menuDetailsPresenter.readData();
+        this.menuDetailsPresenter.readData(this.getActivity());
         return view;
     }
 
@@ -107,7 +107,7 @@ public class MenuDetailsFragment extends Fragment implements MenuDetailsPresente
             String bahan = this.menuBahan.getText().toString();
             String langkah = this.menuLangkah.getText().toString();
             String restoran = this.menuRestoran.getText().toString();
-            this.menuDetailsPresenter.saveRecord(name, desc, bahan, langkah, restoran);
+            this.menuDetailsPresenter.saveRecord(name, desc, bahan, langkah, restoran, this.getActivity());
         }
 
         else if(view == this.nameEdit){

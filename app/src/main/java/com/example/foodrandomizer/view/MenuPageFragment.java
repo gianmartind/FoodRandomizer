@@ -2,6 +2,7 @@ package com.example.foodrandomizer.view;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,6 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
         */
         this.db = new DBHandler(this.getActivity());
         this.menuPagePresenter = new MenuPagePresenter(this, this.db);
-
 
         this.fab = view.findViewById(R.id.fab);
         this.fab.setOnClickListener(this);
@@ -94,6 +94,7 @@ public class MenuPageFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Log.d("TAG", "onItemClick: ");
         this.menuPagePresenter.openDetails(i);
     }
 }

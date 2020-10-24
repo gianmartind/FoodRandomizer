@@ -2,6 +2,7 @@ package com.example.foodrandomizer.presenter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -16,6 +17,7 @@ public class HistoryPresenter {
     protected List<History> histories;
     protected HistoryPresenter.IHistoryPage ui;
     protected DBHandler db;
+    protected Toast toast;
 
     public HistoryPresenter(HistoryPresenter.IHistoryPage view, DBHandler db){
         this.histories = new ArrayList<>();
@@ -33,9 +35,11 @@ public class HistoryPresenter {
     public void clearAll(){
         this.db.deleteAllHistory();
         loadData("");
+        this.toast.show();
     }
 
     public void openClear(Context context){
+        this.toast = Toast.makeText(context, "History cleared", Toast.LENGTH_SHORT);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Clear Data Confirmation");
         builder.setMessage("Delete all item?");
@@ -58,9 +62,11 @@ public class HistoryPresenter {
         History item = new History(itemId, "", "");
         this.db.deleteHistory(item);
         loadData("");
+        toast.show();
     }
 
     public void openDeleteItem(Context context, final int itemId){
+        this.toast = Toast.makeText(context, "History deleted", Toast.LENGTH_SHORT);
         final int historyId = this.histories.get(itemId).getId();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Delete Item Confirmation");

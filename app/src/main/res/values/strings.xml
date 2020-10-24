@@ -21,7 +21,8 @@
     <string name="delete">Delete</string>
     <string name="save">Save and Close</string>
     <string name="menu_details_title">Menu Details</string>
-    <string name="pencarian_menu">Search Menu</string>
+    <string name="pencarian_menu">Search Menu by "Name"</string>
+    <string name="pencarian_bahan">Search Menu by "Bahan"</string>
     <string name="empty"><font size="12">empty...</font></string>
     <string name="history_page_title">History</string>
     <string name="clear">clear</string>

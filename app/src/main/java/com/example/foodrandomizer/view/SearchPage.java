@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -22,11 +23,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchPage extends Fragment implements SearchView.OnQueryTextListener, SearchPresenter.ISearchPage, AdapterView.OnItemClickListener{
+public class SearchPage extends Fragment implements SearchView.OnQueryTextListener, SearchPresenter.ISearchPage, AdapterView.OnItemClickListener, View.OnClickListener {
     private DBHandler db;
     private SearchPageAdapter adapter;
     private ListView menuList;
     private SearchPresenter searchPresenter;
+    private Button changeQueryButton;
     FragmentListener fragmentListener;
     private SearchView search;
 
@@ -44,6 +46,8 @@ public class SearchPage extends Fragment implements SearchView.OnQueryTextListen
         this.menuList.setOnItemClickListener(this);
         this.search = view.findViewById(R.id.pencarian);
         this.search.setOnQueryTextListener(this);
+        this.changeQueryButton = view.findViewById(R.id.query_switch);
+        this.changeQueryButton.setOnClickListener(this);
         searchPresenter.loadData("");
 
         return view;
@@ -71,6 +75,16 @@ public class SearchPage extends Fragment implements SearchView.OnQueryTextListen
     }
 
     @Override
+    public void changeQuery(String query) {
+        if(query.equals("NAME")){
+            this.search.setQueryHint(this.getActivity().getResources().getString(R.string.pencarian_menu));
+        }
+        else {
+            this.search.setQueryHint(this.getActivity().getResources().getString(R.string.pencarian_bahan));
+        }
+    }
+
+    @Override
     public void openDetails(int id2) {
         this.fragmentListener.changeMenuId(id2);
         this.fragmentListener.changePage(6);
@@ -90,5 +104,10 @@ public class SearchPage extends Fragment implements SearchView.OnQueryTextListen
     public boolean onQueryTextChange(String s) {
         this.searchPresenter.loadData(s);
         return false;
+    }
+
+    @Override
+    public void onClick(View view) {
+        this.searchPresenter.queryChange();
     }
 }
